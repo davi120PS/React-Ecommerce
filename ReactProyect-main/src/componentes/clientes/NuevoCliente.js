@@ -25,7 +25,7 @@ function NuevoCliente(){
 
     const actualizarState = e =>{
         //console.log(e.target.value);
-        guardarAlumnos({
+        guardarClientes({
             ...cliente,
             [e.target.name]: e.target.value
         })
