@@ -1,11 +1,11 @@
 import React, { Fragment } from 'react';
 import Header from '../src/componentes/layout/Header';
 import Navigation from './componentes/layout/Navigation';
-import Alumnos from './componentes/alumnos/Alumnos';
+import Alumnos from './componentes/clientes/Clientes';
 import Calificaciones from './componentes/calificaciones/Calificaciones';
 import Carreras from './componentes/carreras/Carreras';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import NuevoAlumno from './componentes/alumnos/NuevoAlumno';
+import NuevoAlumno from './componentes/clientes/NuevoCliente';
 
 function App() {
   return (
@@ -21,7 +21,7 @@ function App() {
 
             <Routes>
               <Route path="/" element={<Alumnos />} />
-              <Route path="/nuevo-alumno" element={<NuevoAlumno />} />
+              <Route path="/nuevo-cliente" element={<NuevoAlumno />} />
               <Route path="/carreras" element={<Carreras />} />
               <Route path="/calificaciones" element={<Calificaciones />} />
             </Routes>
