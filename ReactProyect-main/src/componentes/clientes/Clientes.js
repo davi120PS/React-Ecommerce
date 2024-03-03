@@ -3,7 +3,7 @@ import ClienteAxios from '../../config/axios';
 import {Link} from 'react-router-dom';
 
 function Clientes() {
-    const [alumnos, guardarClientes] = useState([]);
+    const [clientes, guardarClientes] = useState([]);
     const ConsultarAPI = async () => {
         const ClientesConsulta = await ClienteAxios.get('/clientes');
 
@@ -15,6 +15,16 @@ function Clientes() {
         ConsultarAPI();
     }, []);
 
+    const deleteCliente = async (id) => {
+        try {
+            const response = await ClienteAxios.delete('/clientes/'+id+'');
+            alert("Cliente Eliminado");
+            window.location.reload();
+        } catch (error) {
+            console.error(error);
+        }
+    };
+
     return (
         <Fragment>
             <h2>Clientes</h2>
@@ -22,9 +32,9 @@ function Clientes() {
                 Nuevo cliente
             </Link>
 
-            <ul class="listado-clientes">
+            <ul class="listado-alumno">
                 {clientes.map(cliente =>
-                    <li class="cliente">
+                    <li class="alumno">
                         <div class="info-cliente">
                             <p class="nombre">{cliente.Nombre}</p>
                             <p class="carrera">{cliente.Correo}</p>
@@ -35,7 +45,7 @@ function Clientes() {
                                 <i class="fas fa-pen-alt"></i>
                                 Editar Cliente
                             </a>
-                            <button type="button" class="btn btn-rojo btn-eliminar">
+                            <button type="button" class="btn btn-rojo btn-eliminar" onClick={() => deleteCliente(cliente.ClienteID)}>
                                 <i class="fas fa-times"></i>
                                 Eliminar Cliente
                             </button>
@@ -46,4 +56,4 @@ function Clientes() {
         </Fragment>
     )
 }
-export default Alumnos;
+export default Clientes;
