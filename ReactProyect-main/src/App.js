@@ -3,9 +3,11 @@ import Header from '../src/componentes/layout/Header';
 import Navigation from './componentes/layout/Navigation';
 import Clientes from './componentes/clientes/Clientes';
 import Pedidos from './componentes/pedidos/Pedidos';
-import Productos from './componentes/productos/Productos';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import NuevoCliente from './componentes/clientes/NuevoCliente';
+import NuevoProducto from './componentes/productos/NuevoProducto';
+import Productos from './componentes/productos/Productos';
+
 
 function App() {
   return (
@@ -22,8 +24,9 @@ function App() {
             <Routes>
               <Route path="/" element={<Clientes />} />
               <Route path="/nuevo-cliente" element={<NuevoCliente />} />
-              <Route path="/productos" element={<Productos />} />
               <Route path="/pedidos" element={<Pedidos />} />
+              <Route path="/productos" element={<Productos />} />
+              <Route path="/nuevo-producto" element={<NuevoProducto />} />
             </Routes>
 
           </main>
