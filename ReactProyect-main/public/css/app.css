@@ -96,7 +96,7 @@ h2 {
 .btn:disabled {
     opacity: .4;
 }
-.nvo-alumno {
+.nvo-cliente {
     padding: 2rem 4rem;
     width: auto;
 }
@@ -174,7 +174,7 @@ h2 {
     left: 0;
     top: 1rem;
 }
-.navegacion a.alumnos::before {
+.navegacion a.clientes::before {
     font-family: "Font Awesome 5 Free"; 
     font-weight: 900; 
     content: "\f0c0";
@@ -207,38 +207,38 @@ h2 {
     border-radius: 1rem;
 }
 
-/** Mostrar Alumnos **/
-.listado-alumnos,
+/** Mostrar clientes **/
+.listado-clientes,
 .listado-carreras,
 .listado-calificaciones {
     list-style: none;
     padding: 0;
 }
-.alumno,
+.cliente,
 .carrera,
 .pedido,
 .resumen li {
     padding: 2rem 0;
     border-bottom: 1px solid var(--grisClaro);
 }
-.alumno:last-of-type,
+.cliente:last-of-type,
 .carrera:last-of-type, 
 .pedido:last-of-type{
     border-bottom: 0;
 }
 @media (min-width: 768px) {
-    .alumno,
+    .cliente,
     .producto,
     .pedido {
         display: flex;
         justify-content: space-between;
     }
-    .alumno .info-alumno,
+    .cliente .info-cliente,
     .producto .info-producto,
     .pedido .info-pedido {
         flex: 0 0 calc(70% - 1rem);
     }
-    .alumno .acciones,
+    .cliente .acciones,
     .producto .acciones,
     .pedido .acciones {
         flex: 0 0 calc(30% - 1rem);
@@ -263,25 +263,25 @@ h2 {
 }
 
 @media (min-width: 768px) {
-    .alumno .acciones a:last-of-type,
+    .cliente .acciones a:last-of-type,
     .producto .acciones a:last-of-type, 
     .pedido .acciones a:last-of-type {
         margin-bottom: 0;
     } 
 }
-.alumno p,
+.cliente p,
 .producto p,
 .pedido p {
     margin: 2rem 0;
 }
-.alumno .nombre,
+.cliente .nombre,
 .producto .nombre,
 .pedido .id,
 .resumen .nombre {
     font-size: 2.4rem;
     color: var(--azul);
 }
-.alumno .carrera,
+.cliente .carrera,
 .pedido .nombre, 
 .resumen .precio{
     font-weight: 700;
