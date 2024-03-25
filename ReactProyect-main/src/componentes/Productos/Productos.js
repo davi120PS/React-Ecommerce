@@ -1,11 +1,11 @@
 import React, { Fragment, useEffect, useState } from 'react';
-import ClienteAxios from '../../config/axios';
+import ProductoAxios from '../../config/axios';
 import {Link} from 'react-router-dom';
 
 function Productos() {
-    const [productos, guardarproductos] = useState([]);
+    const [productos, guardarProductos] = useState([]);
     const ConsultarAPI = async () => {
-        const ProductosConsulta = await ProductosAxios.get('/productos');
+        const ProductosConsulta = await ProductoAxios.get('/productos');
 
         guardarProductos(ProductosConsulta.data);
         console.log(productos);
@@ -32,9 +32,9 @@ function Productos() {
                 Nuevo producto
             </Link>
 
-            <ul class="listado-alumno">
+            <ul class="listado-productos">
                 {productos.map(producto =>
-                    <li class="alumno">
+                    <li class="producto">
                         <div class="info-producto">
                             <p class="nombre">{producto.Nombre}</p>
                             <p class="carrera">{producto.Descripcion}</p>

@@ -32,9 +32,9 @@ function Clientes() {
                 Nuevo cliente
             </Link>
 
-            <ul class="listado-alumno">
+            <ul class="listado-clientes">
                 {clientes.map(cliente =>
-                    <li class="alumno">
+                    <li class="cliente">
                         <div class="info-cliente">
                             <p class="nombre">{cliente.Nombre}</p>
                             <p class="carrera">{cliente.Correo}</p>
@@ -45,9 +45,9 @@ function Clientes() {
                                 <i class="fas fa-pen-alt"></i>
                                 Editar Cliente
                             </a>
-                            <button type="button" class="btn btn-rojo btn-eliminar" onClick={() => deleteCliente(cliente.ClienteID)}>
-                                <i class="fas fa-times"></i>
-                                Eliminar Cliente
+                            <button type="button" class="btn btn-rojo btn-eliminar" onClick={()=>deleteCliente(cliente.ClienteID)}>
+                            <i class="fas fa-times"></i>
+                            Eliminar Cliente
                             </button>
                         </div>
                     </li>

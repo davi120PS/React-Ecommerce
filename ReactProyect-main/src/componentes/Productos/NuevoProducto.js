@@ -1,14 +1,14 @@
 import React, { Fragment, useEffect, useState } from 'react';
-import ClienteAxios from '../../config/axios';
+import ProductoAxios from '../../config/axios';
 
 function NuevoProducto(){
     
-    const[pedidos, guardarCarrera] =useState ([]);
+    const[productos, guardarCarrera] =useState ([]);
     const ConsultarAPI = async() => {
-        const CarreraConsulta = await ClienteAxios.get('/pedidos');
+        const CarreraConsulta = await ProductoAxios.get('/productos');
     
         guardarCarrera(CarreraConsulta.data);
-        console.log(pedidos);
+        console.log(productos);
     
     }
     useEffect ( ()=>{
@@ -19,8 +19,9 @@ function NuevoProducto(){
     const [producto, guardarProductos] = useState({
         "action":"insert",
         "nombre":"",
-        "correo":"",
-        "direccion":""
+        "descripcion":"",
+        "precio":"",
+        "stock":""
     });
 
     const actualizarState = e =>{
@@ -33,7 +34,7 @@ function NuevoProducto(){
 
     const AgregarProducto = e =>{
         e.preventDefault();
-        ClienteAxios.post('/productos', producto).then(res=>{alert("Producto Guardado");window.location.reload();console.log(res)});
+        ProductoAxios.post('/productos', producto).then(res=>{alert("Producto Guardado");window.location.reload();console.log(res)});
     }
 
     const validarProducto = ()=>{
@@ -58,21 +59,21 @@ function NuevoProducto(){
             
                 <div class="campo">
                     <label>Descripcion:</label>
-                    <input type="text" placeholder="Descripcion Producto" name="deescripcion" onChange={actualizarState}/>
+                    <input type="text" placeholder="Descripcion Producto" name="descripcion" onChange={actualizarState}/>
                 </div>
 
                 <div class="campo">
                     <label>Precio:</label>
-                    <input type="text" placeholder="Precio Producto" name="Precio" onChange={actualizarState}/>
+                    <input type="text" placeholder="Precio Producto" name="precio" onChange={actualizarState}/>
                 </div>
 
                 <div class="campo">
                     <label>Stock:</label>
-                    <input type="text" placeholder="Stock Producto" name="Stock" onChange={actualizarState}/>
+                    <input type="text" placeholder="Stock Producto" name="stock" onChange={actualizarState}/>
                 </div>
 
                 <div class="enviar">
-                        <input type="submit" class="btn btn-azul" value="Agregar Cliente" disabled = {validarCliente()}/>
+                        <input type="submit" class="btn btn-azul" value="Agregar Producto" disabled = {validarProducto()}/>
                 </div>
 
             </form>

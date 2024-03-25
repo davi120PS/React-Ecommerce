@@ -96,6 +96,9 @@ h2 {
 .btn:disabled {
     opacity: .4;
 }
+.nvo-producto,
+.nvo-pedido,
+.nvo-detallespedido,
 .nvo-cliente {
     padding: 2rem 4rem;
     width: auto;
@@ -209,37 +212,42 @@ h2 {
 
 /** Mostrar clientes **/
 .listado-clientes,
-.listado-carreras,
-.listado-calificaciones {
+.listado-productos,
+.listado-pedidos {
     list-style: none;
     padding: 0;
 }
 .cliente,
-.carrera,
+.producto,
 .pedido,
+.detallespedido,
 .resumen li {
     padding: 2rem 0;
     border-bottom: 1px solid var(--grisClaro);
 }
 .cliente:last-of-type,
-.carrera:last-of-type, 
+.producto:last-of-type, 
+.detallespedido:last-of-type,
 .pedido:last-of-type{
     border-bottom: 0;
 }
 @media (min-width: 768px) {
     .cliente,
     .producto,
+    .detallespedido,
     .pedido {
         display: flex;
         justify-content: space-between;
     }
     .cliente .info-cliente,
     .producto .info-producto,
+    .detallespedido .info-detalles,
     .pedido .info-pedido {
         flex: 0 0 calc(70% - 1rem);
     }
     .cliente .acciones,
     .producto .acciones,
+    .detallespedido .acciones,
     .pedido .acciones {
         flex: 0 0 calc(30% - 1rem);
         padding: 2rem 0;
@@ -248,6 +256,8 @@ h2 {
         justify-content: space-around;
     } 
     
+    .detallespedido .acciones
+    .cliente .acciones
     .pedido .acciones,
     .producto .acciones  {
         justify-content: flex-start;
@@ -269,6 +279,7 @@ h2 {
         margin-bottom: 0;
     } 
 }
+.detallespedido p,
 .cliente p,
 .producto p,
 .pedido p {
