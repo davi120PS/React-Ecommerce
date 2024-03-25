@@ -1,6 +1,7 @@
 import React, { Fragment, useEffect, useState } from 'react';
 import ClienteAxios from '../../config/axios';
 import {Link} from 'react-router-dom';
+import EditarCliente from './EditarCliente';
 
 function Clientes() {
     const [clientes, guardarClientes] = useState([]);
@@ -41,10 +42,10 @@ function Clientes() {
                             <p>{cliente.Direccion}</p>
                         </div>
                         <div class="acciones">
-                            <a href="#" class="btn btn-azul">
-                                <i class="fas fa-pen-alt"></i>
+                            <Link to={"/editar-cliente/"+cliente.ClienteID} className="btn btn-azul">
+                                <i className="fas fa-pen-alt"></i>
                                 Editar Cliente
-                            </a>
+                            </Link>
                             <button type="button" class="btn btn-rojo btn-eliminar" onClick={()=>deleteCliente(cliente.ClienteID)}>
                             <i class="fas fa-times"></i>
                             Eliminar Cliente
