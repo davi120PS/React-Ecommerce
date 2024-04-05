@@ -8,10 +8,6 @@ function EditarCliente()
     const ClienteConsulta    = await ClienteAxios.get('/clientes/'+params.id+'');
     
     guardareditarCliente(ClienteConsulta.data[0]);
-    
-    
- //COLOCAR STATE
-    
     }
 
     let params = useParams();
@@ -23,6 +19,7 @@ function EditarCliente()
         direccion:'',
         id:''+params.id+''    
     });
+
     useEffect( () => {
         ConsultarAPI();
     },[]);
@@ -45,7 +42,7 @@ function EditarCliente()
     const ModificarCliente = e => {
         e.preventDefault();
         ClienteAxios.post('/clientes', cliente).then(res =>{
-            alert("Cliente Moodificado");
+            alert("Cliente Modificado");
             window.location.reload();
             console.log(res);
 		});

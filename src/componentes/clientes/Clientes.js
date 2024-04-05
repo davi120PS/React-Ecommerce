@@ -38,8 +38,8 @@ function Clientes() {
                     <li class="cliente">
                         <div class="info-cliente">
                             <p class="nombre">{cliente.Nombre}</p>
-                            <p class="carrera">{cliente.Correo}</p>
-                            <p>{cliente.Direccion}</p>
+                            <p class="carrera">Correo: {cliente.Correo}</p>
+                            <p>Dirección: {cliente.Direccion}</p>
                         </div>
                         <div class="acciones">
                             <Link to={"/editar-cliente/"+cliente.ClienteID} className="btn btn-azul">

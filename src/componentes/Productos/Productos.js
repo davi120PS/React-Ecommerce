@@ -37,15 +37,15 @@ function Productos() {
                     <li class="producto">
                         <div class="info-producto">
                             <p class="nombre">{producto.Nombre}</p>
-                            <p class="carrera">{producto.Descripcion}</p>
-                            <p>{producto.Precio}</p>
-                            <p>{producto.Stock}</p>
+                            <p class="carrera">Descripción: {producto.Descripcion}</p>
+                            <p>Precio: ${producto.Precio}</p>
+                            <p>Stock: {producto.Stock}</p>
                         </div>
                         <div class="acciones">
-                            <a href="#" class="btn btn-azul">
-                                <i class="fas fa-pen-alt"></i>
+                            <Link to={"/editar-producto/"+producto.ProductoID} className="btn btn-azul">
+                                <i className="fas fa-pen-alt"></i>
                                 Editar Producto
-                            </a>
+                            </Link>
                             <button type="button" class="btn btn-rojo btn-eliminar" onClick={() => deleteProducto(producto.ProductoID)}>
                                 <i class="fas fa-times"></i>
                                 Eliminar producto
