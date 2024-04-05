@@ -39,7 +39,6 @@ function Detallespedido() {
                             <p class="Pedido">{detallespedido.PedidoID}</p>
                             <p class="Producto">{detallespedido.ProductoID}</p>
                             <p class="Cantidad">{detallespedido.Cantidad}</p>
-                            <p class="Precio Unitario">{detallespedido.PrecioUnitario}</p>
                             <p class="Subtotal">{detallespedido.Subtotal}</p>
                         </div>
                         <div class="acciones">
