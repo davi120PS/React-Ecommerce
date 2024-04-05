@@ -34,17 +34,17 @@ function Pedidos() {
 
             <ul class="listado-pedidos">
                 {pedidos.map(pedido =>
-                    <li class="pedido">
+                    <li class="pedido" key={pedido.PedidoID}>
                         <div class="info-pedido">
                             <p class="cliente">{pedido.ClienteID}</p>
-                            <p class="Fecha de pedido">{pedido.FechaPedido}</p>
-                            <p class="Estado">{pedido.Estado}</p>
+                            <p class="carrera">{pedido.FechaPedido}</p>
+                            <p>{pedido.Estado}</p>
                         </div>
                         <div class="acciones">
-                            <a href="#" class="btn btn-azul">
+                            <Link to={"/editarpedido/" + pedido.PedidoID} class="btn btn-azul">
                                 <i class="fas fa-pen-alt"></i>
                                 Editar Pedido
-                            </a>
+                            </Link>
                             <button type="button" class="btn btn-rojo btn-eliminar" onClick={() => deletePedido(pedido.PedidoID)}>
                                 <i class="fas fa-times"></i>
                                 Eliminar pedido

@@ -6,6 +6,7 @@ import NuevoCliente from './componentes/clientes/NuevoCliente';
 import EditarCliente from './componentes/clientes/EditarCliente';
 import Pedidos from './componentes/pedidos/Pedidos';
 import NuevoPedido from './componentes/pedidos/NuevoPedido';
+import EditarPedido from './componentes/pedidos/EditarPedido';
 import Productos from './componentes/productos/Productos';
 import NuevoProducto from './componentes/productos/NuevoProducto';
 import EditarProducto from './componentes/productos/EditarProducto';
@@ -34,6 +35,7 @@ function App() {
               <Route path="/editar-producto/:id" element={<EditarProducto/>} />
               <Route path="/pedidos" element={<Pedidos />} />
               <Route path="/nuevo-pedido" element={<NuevoPedido />} />
+              <Route path="/editarpedido/:id" element={<EditarPedido />} />
               <Route path="/detallespedido" element={<Detallespedido />} />
               <Route path="/nuevo-detallespedido" element={<NuevoDetalle/>} />
             </Routes>

@@ -8,7 +8,7 @@ function Navigation(){
             <h2>Administración</h2>
 
             <nav class="navegacion">
-                <Link to={"/"} class="alumnos">Clientes</Link>
+                <Link to={"/"} class="clientes">Clientes</Link>
                 <Link to={"/productos"} class="carreras">Productos</Link>
                 <Link to={"/pedidos"} class="carreras">Pedidos</Link>
                 <Link to={"/detallespedido"} class="calificaciones">Detalles de pedido</Link>
