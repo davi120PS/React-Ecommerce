@@ -21,7 +21,6 @@ function NuevoDetallespedido(){
         "pedido":"",
         "producto":"",
         "cantidad":"",
-        "preciounitario":"",
         "subtotal":""
     });
 
@@ -35,12 +34,16 @@ function NuevoDetallespedido(){
 
     const AgregarDetallespedido = e =>{
         e.preventDefault();
-        DetallespedidoAxios.post('/detallespedido', detalles).then(res=>{alert("Detalle pedido Guardado");window.location.reload();console.log(res)});
+        DetallespedidoAxios.post('/detallespedido', detalles).then(res=>{
+            alert("Detalle pedido Guardado");
+            window.location.reload();
+            console.log(res);
+        });
     }
 
     const validarDetallespedido = ()=>{
-        const{pedido,producto,cantidad,preciounitario,subtotal} = detalles;
-        let valido = !pedido.length || !producto.length || !cantidad.length || !preciounitario.length || !subtotal.length;
+        const{pedido,producto,cantidad,subtotal} = detalles;
+        let valido = !pedido.length || !producto.length || !cantidad.length || !subtotal.length;
         return valido;
     }
 
@@ -48,8 +51,6 @@ function NuevoDetallespedido(){
         <Fragment>
         <h2>Nuevo Detalle pedido</h2>
 
-            {/* <form action="/alumnos" method="POST"> */}
-            {/* <form onSubmit={(AgregarAlumno)}> */}
             <form onSubmit={(AgregarDetallespedido)}>
                 <legend>Llena todos los campos</legend>
 
@@ -66,11 +67,6 @@ function NuevoDetallespedido(){
                 <div class="campo">
                     <label>Cantidad:</label>
                     <input type="number" placeholder="Cuanto se compro" name="cantidad" onChange={actualizarState}/>
-                </div>
-
-                <div class="campo">
-                    <label>Precio unitario:</label>
-                    <input type="number" placeholder="Precio por pieza" name="preciounitario" onChange={actualizarState}/>
                 </div>
 
                 <div class="campo">

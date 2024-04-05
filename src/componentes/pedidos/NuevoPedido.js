@@ -46,8 +46,6 @@ function NuevoPedido(){
         <Fragment>
         <h2>Nuevo Pedido</h2>
 
-            {/* <form action="/alumnos" method="POST"> */}
-            {/* <form onSubmit={(AgregarAlumno)}> */}
             <form onSubmit={(AgregarPedido)}>
                 <legend>Llena todos los campos</legend>
 
