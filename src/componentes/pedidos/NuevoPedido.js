@@ -3,12 +3,12 @@ import PedidoAxios from '../../config/axios';
 
 function NuevoPedido(){
     
-    const[pedidos, guardarCarrera] =useState ([]);
+    const[clientes, guardarCliente] =useState ([]);
     const ConsultarAPI = async() => {
-        const CarreraConsulta = await PedidoAxios.get('/pedidos');
+        const ClienteConsulta = await PedidoAxios.get('/clientes');
     
-        guardarCarrera(CarreraConsulta.data);
-        console.log(pedidos);
+        guardarCliente(ClienteConsulta.data);
+        console.log(clientes);
     
     }
     useEffect ( ()=>{
@@ -16,7 +16,7 @@ function NuevoPedido(){
     },[]);
 
     //s
-    const [pedido, guardarPedido] = useState({
+    const [pedido, guardarPedidos] = useState({
         "action":"insert",
         "cliente":"",
         "fecha":"",
@@ -25,7 +25,7 @@ function NuevoPedido(){
 
     const actualizarState = e =>{
         //console.log(e.target.value);
-        guardarPedido({
+        guardarPedidos({
             ...pedido,
             [e.target.name]: e.target.value
         })
@@ -37,8 +37,8 @@ function NuevoPedido(){
     }
 
     const validarPedido = ()=>{
-        const{cliente,fecha,estado} = pedido;
-        let valido = !cliente.length || !fecha.length || !estado.length;
+        const{cliente,fechapedido,estado} = pedido;
+        let valido = !cliente.length || !fechapedido.length || !estado.length;
         return valido;
     }
 
@@ -50,18 +50,26 @@ function NuevoPedido(){
                 <legend>Llena todos los campos</legend>
 
                 <div class="campo">
-                    <label>Cliente ID:</label>
-                    <input type="number" placeholder="Cliente relacionado" name="cliente" onChange={actualizarState}/>
+                    <label>Cliente:</label>
+                    <select name="cliente" onChange={actualizarState}>
+                        <option value="">Seleccione un cliente</option>
+                        {clientes.map(cliente=> <option value={cliente.ClienteID}>{cliente.Nombre}</option>)}
+                    </select>
                 </div>
             
                 <div class="campo">
                     <label>Fecha pedido:</label>
-                    <input type="date" placeholder="Fecha de pedido" name="fecha" onChange={actualizarState}/>
+                    <input type="date" placeholder="Fecha de pedido" name="fechapedido" onChange={actualizarState}/>
                 </div>
 
                 <div class="campo">
                     <label>Estado:</label>
-                    <input type="text" placeholder="Estado" name="estado" onChange={actualizarState}/>
+                    <select name="estado" onChange={actualizarState}>
+                        <option value="">Seleccione una opcion</option>
+                        <option value="1">Enviado</option>
+                        <option value="2">En proceso</option>
+                        <option value="3">Entregado</option>
+                    </select>
                 </div>
 
                 <div class="enviar">

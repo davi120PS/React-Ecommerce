@@ -36,9 +36,9 @@ function Pedidos() {
                 {pedidos.map(pedido =>
                     <li class="pedido" key={pedido.PedidoID}>
                         <div class="info-pedido">
-                            <p class="cliente">{pedido.ClienteID}</p>
-                            <p class="carrera">{pedido.FechaPedido}</p>
-                            <p>{pedido.Estado}</p>
+                            <p class="nombre">{pedido.Cliente}</p>
+                            <p class="carrera">Fecha: {pedido.FechaPedido}</p>
+                            <p>Estado: {pedido.Estado}</p>
                         </div>
                         <div class="acciones">
                             <Link to={"/editarpedido/" + pedido.PedidoID} class="btn btn-azul">
