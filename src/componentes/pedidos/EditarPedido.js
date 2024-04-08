@@ -60,7 +60,7 @@ function EditarPedido(){
                     <label>Cliente:</label>
                     <select name="cliente" onChange={actualizarState}>
                         {clientes.map(cliente=>
-                            <option value={cliente.ClienteID} selected={cliente.ClienteID === pedido.ClienteID}>
+                            <option value={cliente.ClienteID} selected={cliente.ClienteID === pedido.cliente}>
                                 {cliente.Nombre}
                             </option>
                         )}
@@ -69,7 +69,7 @@ function EditarPedido(){
 
                 <div class="campo">
                     <label>Fecha:</label>
-                    <input type="date" placeholder="Fecha Pedido" name="fechapedido" onChange={actualizarState} value={pedido.fechapedido}/>
+                    <input type="date" placeholder="Fecha Pedido" name="fechapedido" onChange={actualizarState} value={pedido.fechapedido ? pedido.fechapedido.slice(0, 10) : ''} />
                 </div>
 
 
@@ -77,10 +77,11 @@ function EditarPedido(){
                     <label>Estado</label>
 
                     <select name="estado" onChange={actualizarState}>
-                        <option value="1" selected={pedido.estado === 1}>Enviado</option>
-                        <option value="2" selected={pedido.estado === 2}>En proceso</option>
-                        <option value="3" selected={pedido.estado === 3}>Entregado</option>
+                        <option value="Enviado" selected={pedido.estado === "Enviado"}>Enviado</option>
+                        <option value="En proceso" selected={pedido.estado === "En proceso"}>En proceso</option>
+                        <option value="Entregado" selected={pedido.estado === "Entregado"}>Entregado</option>
                     </select>
+
                 </div>
 
                 <div class="enviar">
