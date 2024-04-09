@@ -21,7 +21,7 @@ function EditarPedido(){
         const PedidoConsulta = await ClienteAxios.get('/pedidos/'+params.id+'');
     
         guardarCliente(ClienteConsulta.data);
-        guardareditarPedido(PedidoConsulta.data[0]);  
+        guardareditarPedido(PedidoConsulta.data[0]);
     }
     useEffect ( ()=>{
         ConsultarAPI();

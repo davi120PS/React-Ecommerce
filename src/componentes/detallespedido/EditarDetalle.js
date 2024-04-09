@@ -1,47 +1,49 @@
 import React, { Fragment, useEffect, useState } from 'react';
 import DetallespedidoAxios from '../../config/axios';
+import { useParams } from 'react-router-dom';
 
-function NuevoDetallespedido(){
+function EditarPedido(){
     
+    let params = useParams();
+    console.log(params.id);
+
     const[pedidos, guardarPedido] =useState ([]);
     const[productos, guardarProducto] =useState ([]);
+    const [detalle, guardareditarDetallepedido] = useState({
+        action :'update',
+        "pedido":"",
+        "producto":"",
+        "cantidad":"",
+        "subtotal":"",
+        id:''+params.id+''    
+    });
+
     const ConsultarAPI = async() => {
         const PedidoConsulta = await DetallespedidoAxios.get('/pedidos');
         const ProductoConsulta = await DetallespedidoAxios.get('/productos');
-
-        guardarPedido(PedidoConsulta.data);
-        console.log(pedidos);
-        guardarProducto(ProductoConsulta.data);
-        console.log(productos);
+        const DetallepedidoConsulta = await DetallespedidoAxios.get('/detallespedido/'+params.id+'');
     
+        guardarPedido(PedidoConsulta.data);
+        guardarProducto(ProductoConsulta.data);
+        guardareditarDetallepedido(DetallepedidoConsulta.data[0]);  
     }
     useEffect ( ()=>{
         ConsultarAPI();
     },[]);
 
-    //s
-    const [detalle, guardarDetallepedido] = useState({
-        "action":"insert",
-        "pedido":"",
-        "producto":"",
-        "cantidad":"",
-        "subtotal":""
-    });
-
     const actualizarState = e =>{
-        //console.log(e.target.value);
-        guardarDetallepedido({
+        guardareditarDetallepedido({
             ...detalle,
             [e.target.name]: e.target.value
         })
     }
 
-    const AgregarDetallespedido = e =>{
+    const ModificarDetalle = e =>{
         e.preventDefault();
         DetallespedidoAxios.post('/detallespedido', detalle).then(res=>{
-            alert("Detalle pedido Guardado");
+            alert("Detalles Modificado");
             window.location.reload();
-            console.log(res);
+            console.log(res);   
         });
     }
 
@@ -53,44 +55,49 @@ function NuevoDetallespedido(){
 
     return (
         <Fragment>
-        <h2>Nuevo Detalle pedido</h2>
-
-            <form onSubmit={(AgregarDetallespedido)}>
+        <h2>Editar Detalle pedido</h2>
+        
+            <form onSubmit={(ModificarDetalle)}>
                 <legend>Llena todos los campos</legend>
-
+            
                 <div class="campo">
                     <label>Pedido:</label>
                     <select name="pedido" onChange={actualizarState}>
-                        <option value="">Seleccione un cliente</option>
-                        {pedidos.map(pedido=> <option value={pedido.PedidoID}>{pedido.PedidoID}</option>)}
+                        {pedidos.map(pedido=>
+                            <option value={pedido.PedidoID} selected={pedido.PedidoID === detalle.pedido}>
+                                {pedido.PedidoID}
+                            </option>
+                        )}
                     </select>
                 </div>
 
                 <div class="campo">
                     <label>Producto:</label>
                     <select name="producto" onChange={actualizarState}>
-                        <option value="">Seleccione un producto</option>
-                        {productos.map(producto=> <option value={producto.ProductoID}>{producto.Nombre}</option>)}
+                        {productos.map(producto=>
+                            <option value={producto.ProductoID} selected={producto.ProductoID === detalle.producto}>
+                                {producto.Nombre}
+                            </option>
+                        )}
                     </select>
                 </div>
 
                 <div class="campo">
                     <label>Cantidad:</label>
-                    <input type="number" placeholder="Cuanto se compro" name="cantidad" onChange={actualizarState}/>
+                    <input type="number" placeholder="Cantidad Detalle" name="cantidad" onChange={actualizarState} value={detalle.Cantidad} />
                 </div>
 
                 <div class="campo">
-                    <label>Subtotal:</label>
-                    <input type="number" placeholder="subtotal" name="subtotal" onChange={actualizarState}/>
+                    <label>Subtotal</label>
+                    <input type="number" placeholder="Subtotal Detalle" name="subtotal" onChange={actualizarState} value={detalle.Subtotal} />
                 </div>
-            
 
                 <div class="enviar">
-                        <input type="submit" class="btn btn-azul" value="Agregar Detalle pedido" disabled = {validarDetallespedido()}/>
+                    <input type="submit" class="btn btn-azul" value="Actualizar Información Detalle"/>
                 </div>
 
             </form>
         </Fragment>
     )
 }
-export default NuevoDetallespedido;
+export default EditarPedido;

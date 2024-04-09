@@ -47,7 +47,7 @@ function Pedidos() {
                             </Link>
                             <button type="button" class="btn btn-rojo btn-eliminar" onClick={() => deletePedido(pedido.PedidoID)}>
                                 <i class="fas fa-times"></i>
-                                Eliminar pedido
+                                Eliminar Pedido
                             </button>
                         </div>
                     </li>

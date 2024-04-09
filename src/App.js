@@ -12,6 +12,7 @@ import NuevoProducto from './componentes/productos/NuevoProducto';
 import EditarProducto from './componentes/productos/EditarProducto';
 import Detallespedido from './componentes/detallespedido/Detallespedido';
 import NuevoDetalle from './componentes/detallespedido/NuevoDetalle';
+import EditarDetalle from './componentes/detallespedido/EditarDetalle';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 function App() {
@@ -38,6 +39,7 @@ function App() {
               <Route path="/editarpedido/:id" element={<EditarPedido />} />
               <Route path="/detallespedido" element={<Detallespedido />} />
               <Route path="/nuevo-detallespedido" element={<NuevoDetalle/>} />
+              <Route path="/editardetalle/:id" element={<EditarDetalle />} />
             </Routes>
 
           </main>

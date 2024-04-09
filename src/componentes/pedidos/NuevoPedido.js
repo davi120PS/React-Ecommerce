@@ -33,7 +33,11 @@ function NuevoPedido(){
 
     const AgregarPedido = e =>{
         e.preventDefault();
-        PedidoAxios.post('/pedidos', pedido).then(res=>{alert("Pedido Guardado");window.location.reload();console.log(res)});
+        PedidoAxios.post('/pedidos', pedido).then(res=>{
+            alert("Pedido Guardado");
+            window.location.reload();
+            console.log(res);
+        });
     }
 
     const validarPedido = ()=>{

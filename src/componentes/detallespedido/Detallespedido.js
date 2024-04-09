@@ -3,12 +3,12 @@ import DetallespedidoAxios from '../../config/axios';
 import {Link} from 'react-router-dom';
 
 function Detallespedido() {
-    const [detallespedido, guardarDetallespedido] = useState([]);
+    const [detallespedidos, guardarDetallespedido] = useState([]);
     const ConsultarAPI = async () => {
         const DetallespedidoConsulta = await DetallespedidoAxios.get('/detallespedido');
 
         guardarDetallespedido(DetallespedidoConsulta.data);
-        console.log(detallespedido);
+        console.log(detallespedidos);
 
     }
     useEffect(() => {
@@ -33,22 +33,22 @@ function Detallespedido() {
             </Link>
 
             <ul class="listado-detallespedido">
-                {detallespedido.map(detallespedido =>
-                    <li class="detallespedido">
+                {detallespedidos.map(detallespedido =>
+                    <li class="detallespedido" key={detallespedido.DetalleID}>
                         <div class="info-detallespedido">
-                            <p class="Pedido">{detallespedido.PedidoID}</p>
-                            <p class="Producto">{detallespedido.ProductoID}</p>
+                            <p class="Pedido">{detallespedido.Pedido}</p>
+                            <p class="Producto">{detallespedido.Producto}</p>
                             <p class="Cantidad">{detallespedido.Cantidad}</p>
                             <p class="Subtotal">{detallespedido.Subtotal}</p>
                         </div>
                         <div class="acciones">
-                            <a href="#" class="btn btn-azul">
+                            <Link to={"/editardetalle/" + detallespedido.DetalleID} class="btn btn-azul">
                                 <i class="fas fa-pen-alt"></i>
-                                Editar detalle pedido
-                            </a>
+                                Editar Detalles
+                            </Link>
                             <button type="button" class="btn btn-rojo btn-eliminar" onClick={() => deleteDetallepedido(detallespedido.DetalleID)}>
                                 <i class="fas fa-times"></i>
-                                Eliminar detalle pedido
+                                Eliminar Detalles
                             </button>
                         </div>
                     </li>
