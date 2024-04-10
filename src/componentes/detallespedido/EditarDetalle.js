@@ -84,12 +84,12 @@ function EditarPedido(){
 
                 <div class="campo">
                     <label>Cantidad:</label>
-                    <input type="number" placeholder="Cantidad Detalle" name="cantidad" onChange={actualizarState} value={detalle.Cantidad} />
+                    <input type="number" placeholder="Cantidad Detalle" name="cantidad" onChange={actualizarState} value={detalle.cantidad} />
                 </div>
 
                 <div class="campo">
                     <label>Subtotal</label>
-                    <input type="number" placeholder="Subtotal Detalle" name="subtotal" onChange={actualizarState} value={detalle.Subtotal} />
+                    <input type="number" placeholder="Subtotal Detalle" name="subtotal" onChange={actualizarState} value={detalle.subtotal} disabled/>
                 </div>
 
                 <div class="enviar">

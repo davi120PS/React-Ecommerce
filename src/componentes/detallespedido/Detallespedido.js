@@ -36,10 +36,10 @@ function Detallespedido() {
                 {detallespedidos.map(detallespedido =>
                     <li class="detallespedido" key={detallespedido.DetalleID}>
                         <div class="info-detallespedido">
-                            <p class="Pedido">{detallespedido.Pedido}</p>
-                            <p class="Producto">{detallespedido.Producto}</p>
-                            <p class="Cantidad">{detallespedido.Cantidad}</p>
-                            <p class="Subtotal">{detallespedido.Subtotal}</p>
+                            <p class="Pedido">Pedido: {detallespedido.Pedido}</p>
+                            <p class="Producto">Producto: {detallespedido.Producto}</p>
+                            <p class="Cantidad">Cantidad: {detallespedido.Cantidad}</p>
+                            <p class="Subtotal">Subtotal: {detallespedido.Subtotal}</p>
                         </div>
                         <div class="acciones">
                             <Link to={"/editardetalle/" + detallespedido.DetalleID} class="btn btn-azul">

@@ -61,7 +61,7 @@ function NuevoDetallespedido(){
                 <div class="campo">
                     <label>Pedido:</label>
                     <select name="pedido" onChange={actualizarState}>
-                        <option value="">Seleccione un cliente</option>
+                        <option value="">Seleccione un pedido</option>
                         {pedidos.map(pedido=> <option value={pedido.PedidoID}>{pedido.PedidoID}</option>)}
                     </select>
                 </div>
