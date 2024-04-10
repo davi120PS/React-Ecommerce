@@ -36,6 +36,29 @@ function NuevoDetallespedido(){
         })
     }
 
+    /*//Actualiza el subtotal en tiempo real
+    const actualizarSubtotal = (cantidad, productoID) => {
+        const productoSeleccionado = productos.find(producto => producto.ProductoID === productoID);
+        if (productoSeleccionado) {
+            const subtotal = parseFloat(cantidad) * parseFloat(productoSeleccionado.Precio);
+            guardarDetallepedido({
+                ...detalle,
+                cantidad,
+                subtotal: subtotal.toFixed(2)
+            });
+        }
+    }
+    const handleChange = e => {
+        const { name, value } = e.target;
+        guardarDetallepedido({
+            ...detalle,
+            [name]: value
+        });
+        if (name === 'cantidad') {
+            actualizarSubtotal(value, detalle.producto);
+        }
+    }*/
+
     const AgregarDetallespedido = e =>{
         e.preventDefault();
         DetallespedidoAxios.post('/detallespedido', detalle).then(res=>{
@@ -81,7 +104,7 @@ function NuevoDetallespedido(){
 
                 <div class="campo">
                     <label>Subtotal:</label>
-                    <input type="number" placeholder="subtotal" name="subtotal" onChange={actualizarState}/>
+                    <input type="number" placeholder="subtotal" name="subtotal" onChange={actualizarState} />
                 </div>
             
 

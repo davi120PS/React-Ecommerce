@@ -89,7 +89,7 @@ function EditarPedido(){
 
                 <div class="campo">
                     <label>Subtotal</label>
-                    <input type="number" placeholder="Subtotal Detalle" name="subtotal" onChange={actualizarState} value={detalle.subtotal} disabled/>
+                    <input type="number" placeholder="Subtotal Detalle" name="subtotal" onChange={actualizarState} value={detalle.subtotal} />
                 </div>
 
                 <div class="enviar">

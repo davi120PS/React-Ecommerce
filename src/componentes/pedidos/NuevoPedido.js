@@ -19,7 +19,7 @@ function NuevoPedido(){
     const [pedido, guardarPedidos] = useState({
         "action":"insert",
         "cliente":"",
-        "fecha":"",
+        "fechapedido":"",
         "estado":""
     });
 
@@ -70,9 +70,9 @@ function NuevoPedido(){
                     <label>Estado:</label>
                     <select name="estado" onChange={actualizarState}>
                         <option value="">Seleccione una opcion</option>
-                        <option value="1">Enviado</option>
-                        <option value="2">En proceso</option>
-                        <option value="3">Entregado</option>
+                        <option value="Enviado">Enviado</option>
+                        <option value="En proceso">En proceso</option>
+                        <option value="Entregado">Entregado</option>
                     </select>
                 </div>
 
