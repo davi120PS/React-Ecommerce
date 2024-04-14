@@ -14,6 +14,8 @@ import Detallespedido from './componentes/detallespedido/Detallespedido';
 import NuevoDetalle from './componentes/detallespedido/NuevoDetalle';
 import EditarDetalle from './componentes/detallespedido/EditarDetalle';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Login from '.'
+
 
 function App() {
   return (
@@ -28,6 +30,7 @@ function App() {
           <main class="caja-contenido col-9">
 
             <Routes>
+              
               <Route path="/" element={<Clientes />} />
               <Route path="/nuevo-cliente" element={<NuevoCliente />} />
               <Route path="/editar-cliente/:id" element={<EditarCliente/>} />
