@@ -14,7 +14,7 @@ import Detallespedido from './componentes/detallespedido/Detallespedido';
 import NuevoDetalle from './componentes/detallespedido/NuevoDetalle';
 import EditarDetalle from './componentes/detallespedido/EditarDetalle';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Login from '.'
+import Login from './componentes/login/Login';
 
 
 function App() {
